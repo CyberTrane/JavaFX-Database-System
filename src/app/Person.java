@@ -8,9 +8,7 @@ abstract public class Person {
 	private char gender;
 	private boolean smoker;
 	
-	public Person() {
-		
-	}
+	public Person() {}
 	
 	public Name1 getName() {
 		return name;
