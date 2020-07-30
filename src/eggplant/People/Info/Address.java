@@ -1,4 +1,4 @@
-package app;
+package eggplant.People.Info;
 
 public class Address {
 
@@ -7,7 +7,7 @@ public class Address {
 	private String streetType;
 	private String city;
 	private int zipCode;
-	State stateCode;
+	private State state;
 	
 	public Address() {
 		
@@ -53,17 +53,24 @@ public class Address {
 		this.zipCode = zipCode;
 	}
 
-	public State getStateCode() {
-		return stateCode;
+	public State getState() {
+		return state;
 	}
 
-	public void setStateCode(State stateCode) {
-		this.stateCode = stateCode;
+	public void setState(State state) {
+		this.state = state;
 	}
 
 	public String toString() {
 		String result;
-		result = "";
+		result = streetNum + " " + streetName + " " + streetType + "\n" + city + ", " + state + " " + zipCode;
 		return result;
 	}
+	
+	public String addressString() {
+		String result;
+		result = streetNum + " " + streetName + " " + streetType;
+		return result;
+	}
+	
 }

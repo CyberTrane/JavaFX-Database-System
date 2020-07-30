@@ -1,4 +1,4 @@
-package app;
+package eggplant.People;
 
 public class Student extends Person {
 
@@ -36,7 +36,25 @@ public class Student extends Person {
 
 	public String toString() {
 		String result;
-		result = "";
+		result = getMajor();
 		return result;
 	}
+	
+	public boolean equals(Student obj, String property) {
+		boolean result = false;
+		
+		if (property.equals("gpa")) {
+			if (obj.getGpa() > getGpa()) {
+				result = true;
+			}
+		} else if (property.equals("credits")) {
+			if (obj.getCredits() > getCredits()) {
+				result = true;
+			}
+		}
+	
+		return result;
+	}
+	
+	
 }

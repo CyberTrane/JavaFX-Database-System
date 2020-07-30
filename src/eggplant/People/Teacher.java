@@ -1,10 +1,10 @@
-package app;
+package eggplant.People;
 
 public class Teacher extends Person {
 
 	private String subject;
 	private int numOfClasses;
-	private int officeNum;
+	private String officeNum;
 	
 	public Teacher() {
 		
@@ -26,11 +26,11 @@ public class Teacher extends Person {
 		this.numOfClasses = numOfClasses;
 	}
 
-	public int getOfficeNum() {
+	public String getOfficeNum() {
 		return officeNum;
 	}
 
-	public void setOfficeNum(int officeNum) {
+	public void setOfficeNum(String officeNum) {
 		this.officeNum = officeNum;
 	}
 	
@@ -39,4 +39,21 @@ public class Teacher extends Person {
 		result = "";
 		return result;
 	}
+	
+	public boolean equals(Teacher obj) {
+		boolean result = false;
+		
+		if (obj.getNumOfClasses() > getNumOfClasses()) {
+			result = true;
+		}
+		
+		return result;
+	}
+	
 }
+
+
+
+
+
+
