@@ -21,7 +21,7 @@ public class Database {
 
 		try {
 			// Database connection and statement instance
-			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/eggplant", "root", "");
+			conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/eggplant", "root", "sobriQuet3Emblem7graVity?prAgmatiC");
 			
 			if (person instanceof Student) {
 				String query = "insert into students (Name, DateOfBirth, Address, Gender, Major, GPA, Credits, Smoker)" + "values (?, ?, ?, ?, ?, ?, ?, ?)";

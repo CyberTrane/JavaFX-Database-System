@@ -10,6 +10,8 @@ import eggplant.People.Person;
 import eggplant.Dialogs.UserErrors;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -48,9 +50,20 @@ public class Edit {
 	private ComboBox<String> genderCombo, stateCombo;
 	private DatePicker birthDate;
 	
+	private List<String> stateList;
+	
 	public Person editEntry(Person person) {
 		
 		try {
+			// create array list of states
+			stateList = new ArrayList<String>();
+			stateList.add("Alabama");stateList.add("Alaska");stateList.add("Arizona");stateList.add("Arkansas");stateList.add("California");stateList.add("Colorado");stateList.add("Connecticut");stateList.add("Delaware");
+			stateList.add("Florida");stateList.add("Georgia");stateList.add("Hawaii");stateList.add("Idaho");stateList.add("Indiana");stateList.add("Iowa");stateList.add("Kansas");stateList.add("Kentucky");stateList.add("Louisiana");
+			stateList.add("Maine");stateList.add("Maryland");stateList.add("Massachusetts");stateList.add("Michigan");stateList.add("Minnesota");stateList.add("Mississippi");stateList.add("Missouri");stateList.add("Montana");
+			stateList.add("Nebraska");stateList.add("Nevada");stateList.add("New Hampshire");stateList.add("New Jersey");stateList.add("New Mexico");stateList.add("New York");stateList.add("North Carolina");stateList.add("North Dakota");
+			stateList.add("Ohio");stateList.add("Oklahoma");stateList.add("Pennsylvania");stateList.add("Rhode Island");stateList.add("South Carolina");stateList.add("South Dakota");stateList.add("Texas");stateList.add("Utah");
+			stateList.add("Vermont");stateList.add("Virginia");stateList.add("Washington");stateList.add("West Virginia");stateList.add("Wisconsin");stateList.add("Wyoming");
+			
 			// Layouts
 			BorderPane pane = new BorderPane();
 			
@@ -140,9 +153,7 @@ public class Edit {
 		  	
 			stateCombo = new ComboBox<String>();
 			stateCombo.setValue("N/A");
-			stateCombo.getItems().addAll("AL", "AK", "AL", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME",
-										 "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "OH", "OK", "OR", "PA", 
-										 "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "WA", "WV", "WI", "WY");
+			stateCombo.getItems().addAll(stateList);
 			GridPane.setConstraints(stateCombo, 3, 3);
 			
 			stateCombo.setValue(person.getAddress().getState().getStateCode());

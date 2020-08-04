@@ -265,36 +265,42 @@ public class Main extends Application {
 			editBtn.setOnAction(e -> {
 				if (pane.getCenter() == studentTable) {
 					if (studentTable.getSelectionModel().getSelectedItem() == null) {
-						UserErrors.userErrors("Must Select an Entry to Edit", 200, 100);
+						UserErrors.userErrors("Must Select an Entry to Edit", 215, 115);
 					} else {
 						Edit editStudent = new Edit();
 						int index = studentTable.getSelectionModel().getSelectedIndex();
 						student = studentTable.getSelectionModel().getSelectedItem();	
 						student = (Student) editStudent.editEntry(student);
-						studentList.set(index, student);							
-						studentTable.setItems(studentList);
+						if (!(student == null)) {
+							studentList.set(index, student);							
+							studentTable.setItems(studentList);
+						}	
 					}
 				} else if (pane.getCenter() == teacherTable) {
 					if (teacherTable.getSelectionModel().getSelectedItem() == null) {
-						UserErrors.userErrors("Must Select an Entry to Edit", 200, 100);
+						UserErrors.userErrors("Must Select an Entry to Edit", 215, 115);
 					} else {
 						Edit editTeacher = new Edit();
 						int index = teacherTable.getSelectionModel().getSelectedIndex();
 						teacher = teacherTable.getSelectionModel().getSelectedItem();	
 						teacher = (Teacher) editTeacher.editEntry(teacher);
-						teacherList.set(index, teacher);
-						teacherTable.setItems(teacherList);
+						if (!(teacher == null)) {
+							teacherList.set(index, teacher);
+							teacherTable.setItems(teacherList);
+						}
 					}
 				} else if (pane.getCenter() == janitorTable) {
 					if (janitorTable.getSelectionModel().getSelectedItem() == null) {
-						UserErrors.userErrors("Must Select an Entry to Edit", 200, 100);
+						UserErrors.userErrors("Must Select an Entry to Edit", 215, 115);
 					} else {
 						Edit editJanitor = new Edit();
 						int index = janitorTable.getSelectionModel().getSelectedIndex();
 						janitor = janitorTable.getSelectionModel().getSelectedItem();	
 						janitor = (Janitor) editJanitor.editEntry(janitor);
-						janitorList.set(index, janitor);
-						janitorTable.setItems(janitorList);
+						if (!(janitor == null)) {
+							janitorList.set(index, janitor);
+							janitorTable.setItems(janitorList);
+						}
 					}
 				}
 			});
@@ -305,19 +311,19 @@ public class Main extends Application {
 			deleteBtn.setOnAction(e -> {
 				if (pane.getCenter() == studentTable) {
 					if (studentTable.getSelectionModel().getSelectedItem() == null) {
-						UserErrors.userErrors("Must Select an Entry to Delete", 200, 100);
+						UserErrors.userErrors("Must Select an Entry to Delete", 215, 115);
 					} else {
 						studentTable.getItems().remove(studentTable.getSelectionModel().getSelectedItem());
 					}
 				} else if (pane.getCenter() == teacherTable) {
 					if (teacherTable.getSelectionModel().getSelectedItem() == null) {
-						UserErrors.userErrors("Must Select an Entry to Delete", 200, 100);
+						UserErrors.userErrors("Must Select an Entry to Delete", 215, 115);
 					} else {
 						teacherTable.getItems().remove(teacherTable.getSelectionModel().getSelectedItem());
 					}
 				} else if (pane.getCenter() == janitorTable) {
 					if (janitorTable.getSelectionModel().getSelectedItem() == null) {
-						UserErrors.userErrors("Must Select an Entry to Delete", 200, 100);
+						UserErrors.userErrors("Must Select an Entry to Delete", 215, 115);
 					} else {
 						janitorTable.getItems().remove(janitorTable.getSelectionModel().getSelectedItem());
 					}
@@ -329,14 +335,28 @@ public class Main extends Application {
 			reportBtn.setMaxWidth(Double.MAX_VALUE);
 			reportBtn.setOnAction(e -> {
 				if (pane.getCenter() == studentTable) {
-					Report studentReport = new Report();
-					studentReport.createStudentReport(studentList);
+					if (!(studentList.isEmpty())) {
+						Report studentReport = new Report();
+						studentReport.createStudentReport(studentList);
+					} else {
+						UserErrors.userErrors("Table Contains No Data", 215, 115);
+					}
+
 				} else if (pane.getCenter() == teacherTable) {
-					Report teacherReport = new Report();
-					teacherReport.createTeacherReport(teacherList);
+					if (!(teacherList.isEmpty())) {
+						Report teacherReport = new Report();
+						teacherReport.createTeacherReport(teacherList);
+					} else {
+						UserErrors.userErrors("Table Contains No Data", 215, 115);
+					}
+
 				} else if (pane.getCenter() == janitorTable) {
-					Report janitorReport = new Report();
-					janitorReport.createJanitorReport(janitorList);
+					if (!(janitorList.isEmpty())) {
+						Report janitorReport = new Report();
+						janitorReport.createJanitorReport(janitorList);
+					} else {
+						UserErrors.userErrors("Table Contains No Data", 215, 115);
+					}
 				}
 			});
 			

@@ -53,8 +53,6 @@ public class Entry {
 	private ComboBox<String> genderCombo, stateCombo;
 	private DatePicker birthDate;
 	
-	private HashSet<String> genderSet;
-	
 	private List<String> stateList;
 	
 	public Person createEntry(String table) {
@@ -108,14 +106,8 @@ public class Entry {
 			Label genderLabel = new Label("Gender:");
 			GridPane.setConstraints(genderLabel, 2, 1); 
 			
-			genderSet = new HashSet<String>();
-			genderSet.add("M");
-			genderSet.add("F");
-			genderSet.add("O");
-			genderSet.add("U");
-			
 			genderCombo = new ComboBox<String>();                
-			genderCombo.getItems().addAll(genderSet);
+			genderCombo.getItems().addAll("M","F","O","U");   
 			genderCombo.setValue("N/A");         
 			GridPane.setConstraints(genderCombo, 3, 1); 
 			
@@ -150,8 +142,7 @@ public class Entry {
 		  	
 			stateCombo = new ComboBox<String>();
 			stateCombo.setValue("N/A");
-			stateCombo.getItems().addAll(stateList);
-			
+			stateCombo.getItems().addAll(stateList);	
 			GridPane.setConstraints(stateCombo, 3, 3);
 			
 			// ZIP Code
@@ -226,7 +217,7 @@ public class Entry {
 					boolean noErrors = checkSubmission("Student");
 					if (noErrors) {
 						createPerson("Student");
-						Database.sendToDatabase(student);
+//						Database.sendToDatabase(student);
 						window.close();
 					}
 				});

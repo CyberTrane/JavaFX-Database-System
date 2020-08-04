@@ -27,7 +27,7 @@ public class UserErrors {
 		vbox.setAlignment(Pos.CENTER);
 		vbox.getChildren().addAll(label, text, closeBtn);
 		
-		stage.setTitle("User Error");
+		stage.setTitle("Error");
 		stage.setScene(scene);
 		stage.show();
 	}
